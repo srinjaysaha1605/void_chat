@@ -1,0 +1,7 @@
+{
+  "name": "VOID_CHAT",
+  "description": "A futuristic retro-gaming styled instant chatroom where you can talk to strangers (and friendly AI entities).",
+  "requestFramePermissions": [],
+  "prompt": "futuristic retro-gaming terminal chatroom",
+  "majorCapabilities": []
+}
