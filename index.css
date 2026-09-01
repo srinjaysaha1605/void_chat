@@ -283,7 +283,7 @@ body, html {
   text-align: center;
   margin-bottom: 24px;
   text-shadow: 0 0 10px var(--terminal-glow);
-  overflow-x: auto;
+  overflow: hidden;
 }
 
 .ascii-art pre {
@@ -291,6 +291,7 @@ body, html {
   font-size: 0.65rem;
   line-height: 1.15;
   margin: 0;
+  overflow: hidden;
 }
 
 .login-subheading {
@@ -1096,20 +1097,189 @@ body, html {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE OPTIMIZATIONS FOR MOBILE */
 @media (max-width: 640px) {
-  .login-card {
-    padding: 24px 20px;
+  .hidden-mobile {
+    display: none !important;
   }
-  .ascii-art pre {
-    font-size: 0.5rem;
+  
+  .terminal-window {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
-  .message-row {
-    max-width: 90%;
+
+  .terminal-top-bar {
+    padding: 6px 8px;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
-  .features-row {
+
+  .terminal-title-text {
+    font-size: 0.68rem;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .window-controls {
+    gap: 4px;
+  }
+
+  .window-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .terminal-actions {
+    gap: 3px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .icon-btn {
+    padding: 3px 5px;
+    font-size: 0.68rem;
+    gap: 3px;
+  }
+
+  .chat-subheader {
+    padding: 6px 8px;
+    gap: 6px;
     flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .chat-subheader > div {
+    display: flex;
+    flex-wrap: wrap;
     gap: 6px;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .user-badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .user-tag, .role-tag, .room-badge {
+    font-size: 0.68rem;
+    padding: 2px 6px;
+    white-space: nowrap;
+  }
+
+  .status-indicator {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+  }
+
+  .login-screen {
+    padding: 10px;
+  }
+
+  .login-card {
+    padding: 18px 12px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ascii-art pre {
+    font-size: clamp(0.24rem, 1.8vw, 0.42rem);
+    line-height: 1.1;
+    overflow-x: hidden;
+  }
+
+  .input-group label {
+    font-size: 0.75rem;
+  }
+
+  .input-group input {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .room-selector-tabs {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .room-tab-btn {
+    flex-direction: row;
+    justify-content: center;
+    padding: 8px;
+    font-size: 0.72rem;
+  }
+
+  .message-stream {
+    padding: 8px 6px;
+    gap: 8px;
+  }
+
+  .message-row {
+    max-width: 95%;
+    min-width: 0;
+  }
+
+  .msg-header {
+    font-size: 0.68rem;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .msg-bubble {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .chat-input-container {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .chat-input-container input {
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+
+  .send-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+
+  .features-row {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    font-size: 0.7rem;
+  }
+
+  .toast-container {
+    top: 45px;
+    right: 8px;
+    width: calc(100vw - 16px);
+  }
+}
+
+@media (max-width: 380px) {
+  .terminal-title-text {
+    display: none;
+  }
+  
+  .user-tag, .role-tag, .room-badge {
+    font-size: 0.62rem;
+  }
+  
+  .chat-subheader > div {
+    gap: 4px;
   }
 }
